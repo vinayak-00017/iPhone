@@ -8,7 +8,9 @@ const Hero = () => {
   const smallHero = "/assets/videos/smallHero.mp4";
   const largeHero = "/assets/videos/hero.mp4";
   const [videoSrc, setVideoSrc] = useState(
-    window.innerWidth < 760 ? smallHero : largeHero
+    typeof window !== "undefined" && window.innerWidth < 760
+      ? smallHero
+      : largeHero
   );
 
   const handleVideoSrcSet = () => {
